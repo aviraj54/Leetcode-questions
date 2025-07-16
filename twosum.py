@@ -6,9 +6,13 @@ class Solution:
         l=len(num)
         result=[]
         for i in range(l):
-            R=target-num[i]
-            if R in num and (num[i]!=R or num[i+1]==R):
+            for j in range(1,l,1):
+                x=num[i]+num[j]
+                if x==target and i!=j:
                     result.append(i)
-        return result
+                    result.append(j)
+                    b=set(result)
+                    c=list(b)
+        return c
 a= Solution()
-print(a.twoSum([3,3],6))
+print(a.twoSum([-1,-2,-3,-4,-5],-8))
